@@ -18,7 +18,7 @@
     font-size: 16px;
     margin: 10px 0;
     width: 100%;
-    max-width: 200px; /* Set a reasonable max-width if desired */
+    max-width: 200px;
 }
 
 .button:hover {
