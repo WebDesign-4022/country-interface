@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import AdminPanel from './components/AdminPanel/AdminPanel';
+import UserPanel from './components/UserPanel/UserPanel';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [selectedPanel, setSelectedPanel] = useState(null);
+
+    const renderPanel = () => {
+        if (selectedPanel === 'admin') {
+            return <AdminPanel onBack={() => setSelectedPanel(null)} />;
+        } else if (selectedPanel === 'user') {
+            return <UserPanel onBack={() => setSelectedPanel(null)} />;
+        } else {
+            return (
+                <div className="selection">
+                    <h2>Lets Begin!</h2>
+                    <button className="button" onClick={() => setSelectedPanel('admin')}>Admin Panel</button>
+                    <button className="button" onClick={() => setSelectedPanel('user')}>User Panel</button>
+                </div>
+            );
+        }
+    };
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1>Country Information Service</h1>
+            </header>
+            <div className="content">
+                {renderPanel()}
+            </div>
+        </div>
+    );
 }
 
 export default App;
