@@ -72,3 +72,8 @@ input {
 .modal-buttons button:hover {
     background-color: #21a1f1;
 }
+
+.error-message {
+    color: red;
+    margin: 10px 0;
+}

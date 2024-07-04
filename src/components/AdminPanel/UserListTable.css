@@ -1,0 +1,42 @@
+.user-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.user-list-table th,
+.user-list-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.user-list-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-list-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-list-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.user-list-table button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.user-list-table button:hover {
+    background-color: #21a1f1;
+}
