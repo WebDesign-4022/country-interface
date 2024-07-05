@@ -1,7 +1,7 @@
 .user-list-table {
-    width: 80%; /* Adjust the width as needed */
+    width: 80%;
     border-collapse: collapse;
-    margin: 20px auto; /* Center the table horizontally */
+    margin: 20px auto;
     font-family: Arial, sans-serif;
     color: #333;
 }
@@ -10,7 +10,7 @@
 .user-list-table td {
     border: 1px solid #ddd;
     padding: 10px;
-    text-align: center; /* Center the text */
+    text-align: center;
 }
 
 .user-list-table th {

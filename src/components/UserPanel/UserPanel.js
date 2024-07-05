@@ -7,9 +7,16 @@ import './UserPanel.css';
 const UserPanel = ({ onBack }) => {
     const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+    const [state, setNewState] = useState(0);
 
     const getToken = () => {
         return localStorage.getItem('loginToken');
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('loginToken');
+        setNewState(state + 1)
+        alert('You have been logged out');
     };
 
     const renderPanel = () => {
@@ -21,7 +28,7 @@ const UserPanel = ({ onBack }) => {
                 <Button label="API Token List" hidden={!isLoggedIn} onClick={() => alert('API Token List Clicked')} />
                 <Button label="Create Token" hidden={!isLoggedIn} onClick={() => alert('Create Token Clicked')} />
                 <Button label="Revoke API Token" hidden={!isLoggedIn} onClick={() => alert('Revoke API Token Clicked')} />
-                <Button label="Logout" hidden={!isLoggedIn} onClick={() => alert('Logout')} />
+                <Button label="Logout" hidden={!isLoggedIn} onClick={handleLogout} />
                 <Button label="Back" hidden={false} onClick={onBack} />
             </div>
         );
