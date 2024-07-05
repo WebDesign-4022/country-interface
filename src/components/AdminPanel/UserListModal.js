@@ -120,7 +120,7 @@ const UserListModal = ({ isOpen, onRequestClose }) => {
                     </thead>
                     <tbody>
                     <tr>
-                        <td colSpan="3">No users found</td>
+                        <td colSpan="3">No Data</td>
                     </tr>
                     </tbody>
                 </table>

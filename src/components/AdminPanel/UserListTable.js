@@ -17,7 +17,10 @@ const UserListTable = ({ users, onChangeStatus }) => {
                     <td>{user.username}</td>
                     <td>{user.active ? 'Active' : 'Inactive'}</td>
                     <td>
-                        <button onClick={() => onChangeStatus(user.username, !user.active)}>
+                        <button
+                            className={user.active ? 'deactivate-button' : 'activate-button'}
+                            onClick={() => onChangeStatus(user.username, !user.active)}
+                        >
                             {user.active ? 'Deactivate' : 'Activate'}
                         </button>
                     </td>

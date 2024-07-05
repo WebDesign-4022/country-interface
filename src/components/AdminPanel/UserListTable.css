@@ -1,7 +1,7 @@
 .user-list-table {
-    width: 100%;
+    width: 80%; /* Adjust the width as needed */
     border-collapse: collapse;
-    margin-top: 20px;
+    margin: 20px auto; /* Center the table horizontally */
     font-family: Arial, sans-serif;
     color: #333;
 }
@@ -10,7 +10,7 @@
 .user-list-table td {
     border: 1px solid #ddd;
     padding: 10px;
-    text-align: left;
+    text-align: center; /* Center the text */
 }
 
 .user-list-table th {
@@ -39,4 +39,22 @@
 
 .user-list-table button:hover {
     background-color: #21a1f1;
+}
+
+.user-list-table .activate-button {
+    background-color: #46cc46;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-list-table .deactivate-button {
+    background-color: #f35757;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
