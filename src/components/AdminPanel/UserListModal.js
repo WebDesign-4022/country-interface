@@ -13,10 +13,11 @@ const UserListModal = ({ isOpen, onRequestClose }) => {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        if (decryptedApiKey) {
-            fetchUsers();
+        if (password.length > 0) {
+            decryptPassword()
         }
-    }, [decryptedApiKey]);
+    }, [password]);
+
 
     const fetchUsers = () => {
         const myHeaders = new Headers();
@@ -26,23 +27,21 @@ const UserListModal = ({ isOpen, onRequestClose }) => {
             method: 'GET',
             headers: myHeaders,
             redirect: 'follow',
-            credentials: 'include' // Ensure credentials are included if needed
+            credentials: 'include'
         };
 
         fetch('http://localhost:8080/admin/users', requestOptions)
             .then((response) => {
-                if (response.status !== 200) {
-                    throw new Error(`Error: ${response.status} ${response.statusText}`);
-                }
+                if (response.status !== 200)
+                    throw new Error(`Error ${response.status}`);
                 return response.json();
             })
-            .then((result) => {
-                setUsers(result);
+            .then((users) => {
+                setUsers(users);
                 setError('');
             })
             .catch((error) => {
-                console.error(error);
-                setError(error.message);
+                setError("Wrong Password: " + error.message);
             });
     };
 
@@ -54,36 +53,35 @@ const UserListModal = ({ isOpen, onRequestClose }) => {
             method: 'PUT',
             headers: myHeaders,
             redirect: 'follow',
-            credentials: 'include' // Ensure credentials are included if needed
+            credentials: 'include'
         };
 
         fetch(`http://localhost:8080/admin/users?username=${username}&active=${active}`, requestOptions)
             .then((response) => {
                 if (response.status !== 200) {
-                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                    throw new Error(`Error ${response.status}`);
                 }
-                return response.json();
             })
             .then(() => fetchUsers())
             .catch((error) => {
-                console.error(error);
-                setError(error.message);
+                setError("Wrong Password: " + error.message);
             });
     };
 
-    const getList = () => {
+    const decryptPassword = () => {
         try {
             const bytes = CryptoJS.AES.decrypt(ENCRYPTED_API_KEY, password);
             const decrypted = bytes.toString(CryptoJS.enc.Utf8);
             setDecryptedApiKey(decrypted);
         } catch (error) {
-            console.error('Invalid password');
-            setError('Invalid password');
+            setError('Wrong Password');
         }
     };
 
     const handleClose = () => {
         setPassword('');
+        setUsers([])
+        setError('')
         onRequestClose();
     };
 
@@ -99,11 +97,13 @@ const UserListModal = ({ isOpen, onRequestClose }) => {
             <input
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                    setPassword(e.target.value);
+                }}
                 placeholder="Enter Admin Password"
             />
             <div className="modal-buttons">
-                <button onClick={getList}>Show List</button>
+                <button onClick={fetchUsers}>Show List</button>
                 <button onClick={handleClose}>Close</button>
             </div>
             {error && <p className="error-message">{error}</p>}
