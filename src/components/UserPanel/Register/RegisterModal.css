@@ -56,12 +56,24 @@
 
 .result-message {
     margin-top: 10px;
+    padding: 10px;
     font-size: 14px;
-    color: #5af65a;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #4CAF50;
+    border: 1px solid #3e8e41;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .error-message {
     margin-top: 10px;
+    padding: 10px;
     font-size: 14px;
-    color: red;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #f44336;
+    border: 1px solid #d32f2f;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

@@ -8,7 +8,32 @@ const RegisterModal = ({ isOpen, onRequestClose }) => {
     const [result, setResult] = useState('');
     const [error, setError] = useState('');
 
+    function isWeakPassword(password) {
+        const minLength = 6;
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasNumbers = /[0-9]/.test(password);
+        const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+        let score = 0;
+        if (hasUpperCase) score++;
+        if (hasLowerCase) score++;
+        if (hasNumbers) score++;
+        if (hasSpecialChars) score++;
+
+        return password.length < minLength || score < 2;
+    }
+
     const handleRegister = () => {
+        if (username.length < 1 || password.length < 1) {
+            setResult('')
+            setError("Username and password are required");
+            return;
+        } else if (isWeakPassword(password)) {
+            setResult('')
+            setError("A strong password must: be at least 6 characters long, contain at least two of the following: Uppercase letters, Lowercase letters, Numbers, Special characters.");
+            return;
+        }
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
