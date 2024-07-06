@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import Button from '../Button';
 import RegisterModal from './Register/RegisterModal';
 import LoginModal from './Login/LoginModal';
+import ApiTokenListModal from './TokensList/ApiTokenListModal';
+import CreateApiTokenModal from "./CreateToken/CreateApiTokenModal";
 import './UserPanel.css';
 
 const UserPanel = ({ onBack }) => {
     const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+    const [isApiTokenListModalOpen, setApiTokenListModalOpen] = useState(false);
+    const [isCreateApiTokenModalOpen, setCreateApiTokenModalOpen] = useState(false);
     const [state, setNewState] = useState(0);
 
     const getToken = () => {
@@ -20,15 +24,14 @@ const UserPanel = ({ onBack }) => {
     };
 
     const renderPanel = () => {
-        const isLoggedIn = !!getToken();
+        const isLoggedOut = !!getToken();
         return (
             <div className="button-container">
-                <Button label="Register" hidden={isLoggedIn} onClick={() => setRegisterModalOpen(true)} />
-                <Button label="Login" hidden={isLoggedIn} onClick={() => setLoginModalOpen(true)} />
-                <Button label="API Token List" hidden={!isLoggedIn} onClick={() => alert('API Token List Clicked')} />
-                <Button label="Create Token" hidden={!isLoggedIn} onClick={() => alert('Create Token Clicked')} />
-                <Button label="Revoke API Token" hidden={!isLoggedIn} onClick={() => alert('Revoke API Token Clicked')} />
-                <Button label="Logout" hidden={!isLoggedIn} onClick={handleLogout} />
+                <Button label="Register" hidden={isLoggedOut} onClick={() => setRegisterModalOpen(true)} />
+                <Button label="Login" hidden={isLoggedOut} onClick={() => setLoginModalOpen(true)} />
+                <Button label="API Token List" hidden={!isLoggedOut} onClick={() => setApiTokenListModalOpen(true)} />
+                <Button label="Create Token" hidden={!isLoggedOut} onClick={() => setCreateApiTokenModalOpen(true)} />
+                <Button label="Logout" hidden={!isLoggedOut} onClick={handleLogout} />
                 <Button label="Back" hidden={false} onClick={onBack} />
             </div>
         );
@@ -40,6 +43,8 @@ const UserPanel = ({ onBack }) => {
             {renderPanel()}
             <RegisterModal isOpen={isRegisterModalOpen} onRequestClose={() => setRegisterModalOpen(false)} />
             <LoginModal isOpen={isLoginModalOpen} onRequestClose={() => setLoginModalOpen(false)} />
+            <ApiTokenListModal isOpen={isApiTokenListModalOpen} onRequestClose={() => setApiTokenListModalOpen(false)} />
+            <CreateApiTokenModal isOpen={isCreateApiTokenModalOpen} onRequestClose={() => setCreateApiTokenModalOpen(false)} />
         </div>
     );
 };

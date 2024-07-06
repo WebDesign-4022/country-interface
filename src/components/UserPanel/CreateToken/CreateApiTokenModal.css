@@ -1,0 +1,113 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.modal-content input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-buttons button:hover {
+    background-color: #21a1f1;
+}
+
+.result-message {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #4CAF50;
+    border: 1px solid #3e8e41;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #f44336;
+    border: 1px solid #d32f2f;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-token {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-token p {
+    margin: 0;
+    padding: 0;
+    word-break: break-all;
+}
+
+.new-token button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.new-token button:hover {
+    background-color: #21a1f1;
+}
