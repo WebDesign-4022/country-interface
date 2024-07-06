@@ -1,5 +1,13 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
 .user-list-table {
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
     margin: 20px auto;
     font-family: Arial, sans-serif;
@@ -8,6 +16,7 @@
 
 .user-list-table th,
 .user-list-table td {
+    width: auto;
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Button from '../Button';
-import UserListModal from './UserListModal';
+import UserListModal from './UserList/UserListModal';
 import './AdminPanel.css';
 
 const AdminPanel = ({onBack}) => {

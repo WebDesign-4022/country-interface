@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import Modal from 'react-modal';
 import CryptoJS from 'crypto-js';
 import UserListTable from './UserListTable';
@@ -6,7 +6,7 @@ import './UserListModal.css';
 
 const ENCRYPTED_API_KEY = 'U2FsdGVkX19ABvpmwBMZz7MPPjuRyGMAqWxS36cZE7RZUH61NFITYZpJfKt2yTAHyCYYHuYEQ5H4I8xmypceiA==';
 
-const UserListModal = ({ isOpen, onRequestClose }) => {
+const UserListModal = ({isOpen, onRequestClose}) => {
     const [password, setPassword] = useState('');
     const [users, setUsers] = useState([]);
     const [decryptedApiKey, setDecryptedApiKey] = useState('');
@@ -15,6 +15,8 @@ const UserListModal = ({ isOpen, onRequestClose }) => {
     useEffect(() => {
         if (password.length > 0) {
             decryptPassword()
+        } else {
+            setDecryptedApiKey('')
         }
     }, [password]);
 
@@ -81,6 +83,7 @@ const UserListModal = ({ isOpen, onRequestClose }) => {
     const handleClose = () => {
         setPassword('');
         setUsers([])
+        setDecryptedApiKey('')
         setError('')
         onRequestClose();
     };
@@ -108,22 +111,25 @@ const UserListModal = ({ isOpen, onRequestClose }) => {
             </div>
             {error && <p className="error-message">{error}</p>}
             {users.length > 0 ? (
-                <UserListTable users={users} onChangeStatus={handleStatusChange} />
+                <UserListTable users={users} onChangeStatus={handleStatusChange}/>
             ) : (
-                <table className="user-list-table">
-                    <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td colSpan="3">No Data</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div className="table-container">
+                    <table className="user-list-table">
+                        <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Registered On</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colSpan="4">No Data</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             )}
         </Modal>
     );
