@@ -1,0 +1,69 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.user-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.user-list-table th,
+.user-list-table td {
+    width: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.user-list-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-list-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-list-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.user-list-table button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.user-list-table button:hover {
+    background-color: #21a1f1;
+}
+
+.user-list-table .activate-button {
+    background-color: #46cc46;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-list-table .deactivate-button {
+    background-color: #f35757;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,10 @@
+FROM node:22.4.0
+LABEL authors="dshmmd"
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+
+CMD ["npm", "start"]

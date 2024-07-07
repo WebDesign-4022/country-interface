@@ -1,0 +1,33 @@
+.panel {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    width: 100%;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.button:hover {
+    background-color: #21a1f1;
+}
+
+.button:disabled {
+    background-color: #b0bec5;
+    color: #eceff1;
+    cursor: not-allowed;
+}
