@@ -25,7 +25,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Country Information Service</h1>
+                <h1>API Management Panel</h1>
             </header>
             <div className="content">
                 {renderPanel()}
