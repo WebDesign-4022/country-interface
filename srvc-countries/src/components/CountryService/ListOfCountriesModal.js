@@ -32,7 +32,7 @@ const ListOfCountriesModal = ({isOpen, onRequestClose}) => {
                 } else if (response.status === 401) {
                     throw new Error("Invalid api token");
                 } else {
-                    throw new Error(`Error ${response.status} ${response.text()}`);
+                    throw new Error(`Error ${response.status}`);
                 }
             })
             .then(result => {
