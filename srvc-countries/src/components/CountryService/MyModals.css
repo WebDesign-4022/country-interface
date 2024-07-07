@@ -55,18 +55,6 @@
     background-color: #21a1f1;
 }
 
-.result-message {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    background-color: #4CAF50;
-    border: 1px solid #3e8e41;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 .error-message {
     margin-top: 10px;
     padding: 10px;
@@ -79,35 +67,46 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.new-token {
+.country-info, .weather-info {
     margin-top: 20px;
-    padding: 10px;
-    font-size: 14px;
+}
+
+.country-info p, .weather-info p {
+    margin: 5px 0;
     font-family: Arial, sans-serif;
-    color: #000;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+}
+
+
+.search-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.new-token p {
-    margin: 0;
+.country-list {
+    margin-top: 20px;
+    list-style-type: none;
     padding: 0;
-    word-break: break-all;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.new-token button {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #61dafb;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
+.country-list li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
 }
 
-.new-token button:hover {
-    background-color: #21a1f1;
+.country-list li:hover {
+    background-color: #f9f9f9;
+}
+
+.country-list li:last-child {
+    border-bottom: none;
 }

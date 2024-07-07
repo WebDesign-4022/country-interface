@@ -1,59 +1,58 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
 }
 
 .content {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .selection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .selection h2 {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #61dafb;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  margin: 10px 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
 }
 
 .button:hover {
-  background-color: #21a1f1;
+    background-color: #21a1f1;
 }
 
 .Modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  outline: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
 }
 
 input {
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
-

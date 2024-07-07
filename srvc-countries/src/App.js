@@ -1,34 +1,43 @@
-import React, { useState } from 'react';
-import AdminPanel from './components/AdminPanel/AdminPanel';
-import UserPanel from './components/UserPanel/UserPanel';
+import React, {useState} from 'react';
 import './App.css';
 
+import Button from './components/Button';
+import ListOfCountriesModal from './components/CountryService/ListOfCountriesModal';
+import CountryInformationModal from './components/CountryService/CountryInformationModal';
+import CapitalWeatherModal from './components/CountryService/CapitalWeatherModal';
+
+
 function App() {
-    const [selectedPanel, setSelectedPanel] = useState(null);
+    const [isListOfCountriesModalOpen, setListOfCountriesModalOpen] = useState(false);
+    const [isCountryInformationModalOpen, setCountryInformationModalOpen] = useState(false);
+    const [isCapitalWeatherModalOpen, setCapitalWeatherModalOpen] = useState(false);
 
     const renderPanel = () => {
-        if (selectedPanel === 'admin') {
-            return <AdminPanel onBack={() => setSelectedPanel(null)} />;
-        } else if (selectedPanel === 'user') {
-            return <UserPanel onBack={() => setSelectedPanel(null)} />;
-        } else {
-            return (
-                <div className="selection">
-                    <h2>Lets Begin!</h2>
-                    <button className="button" onClick={() => setSelectedPanel('admin')}>Admin Panel</button>
-                    <button className="button" onClick={() => setSelectedPanel('user')}>User Panel</button>
-                </div>
-            );
-        }
+        return (
+            <div className="button-container">
+                <Button label="List of Countries" onClick={() => setListOfCountriesModalOpen(true)} />
+                <Button label="Country Information" onClick={() => setCountryInformationModalOpen(true)} />
+                <Button label="Capital Weather" onClick={() => setCapitalWeatherModalOpen(true)} />
+            </div>
+        );
     };
+
 
     return (
         <div className="App">
             <header className="App-header">
-                <h1>API Management Panel</h1>
+                <h1>Country Service System</h1>
             </header>
-            <div className="content">
+            <div className="panel">
+                <h2>Choose You Service</h2>
                 {renderPanel()}
+
+                <ListOfCountriesModal isOpen={isListOfCountriesModalOpen}
+                                      onRequestClose={() => setListOfCountriesModalOpen(false)}/>
+                <CountryInformationModal isOpen={isCountryInformationModalOpen}
+                                         onRequestClose={() => setCountryInformationModalOpen(false)}/>
+                <CapitalWeatherModal isOpen={isCapitalWeatherModalOpen}
+                                     onRequestClose={() => setCapitalWeatherModalOpen(false)}/>
             </div>
         </div>
     );
